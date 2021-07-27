@@ -1,4 +1,4 @@
-# Stata 新命令：wmt——查询并安装个人写的 Stata 命令
+# Stata 新命令：wmt——查询并安装个人写的 Stata 新命令
 
 > 作者：王美庭  
 > Email: wangmeiting92@gmail.com
