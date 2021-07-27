@@ -153,7 +153,7 @@ installation complete.
 ------------------------------------------------------------------------------
 ```
 
-## 六、目前所有我发布过的命令
+## 六、目前我发布过的所有命令
 
 1. [Stata 新命令：wmtsum——描述性统计表格的输出](https://mp.weixin.qq.com/s/oLgXf0KTgoePOnN1mJUllA)
 2. [Stata 新命令：wmttest——分组 T 均值检验表格的输出](https://mp.weixin.qq.com/s/8w22ms0AttN1TqQZyN9dUA)
