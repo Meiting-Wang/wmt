@@ -52,7 +52,7 @@ It is worth noting that this command can only be used in version 16.0 or later.
 {marker Options}{title:Options}
 
 {synoptset 20}{...}
-{synopthdr:Install options}
+{synopthdr:install options}
 {synoptline}
 {synopt :{opt replace}}Secifies that the downloaded files replace existing files if any of the files already exists.{p_end}
 {synopt :{opt force}}Specifies that the downloaded files replace existing files if any of the files already exists, even if Stata thinks all the files are the same. It is obvious that {opt force} implies {opt replace}.{p_end}
@@ -63,16 +63,16 @@ It is worth noting that this command can only be used in version 16.0 or later.
 {marker Examples}{title:Examples}
 
 {p 4 4 2}Describe one or more commands written by Meiting Wang{p_end}
-{p 8 10 2}. {bf:wmt describe mas}{p_end}
-{p 8 10 2}. {bf:wmt describe fn mas}{p_end}
+{p 8 10 2}. {stata wmt describe mas}{p_end}
+{p 8 10 2}. {stata wmt describe fn mas}{p_end}
 
 {p 4 4 2}Install one or more commands written by Meiting Wang{p_end}
-{p 8 10 2}. {bf:wmt install mas}{p_end}
-{p 8 10 2}. {bf:wmt install mas, replace}{p_end}
-{p 8 10 2}. {bf:wmt install mas, force}{p_end}
-{p 8 10 2}. {bf:wmt install fn mas}{p_end}
-{p 8 10 2}. {bf:wmt install fn mas, replace}{p_end}
-{p 8 10 2}. {bf:wmt install fn mas, force}{p_end}
+{p 8 10 2}. {stata wmt install mas}{p_end}
+{p 8 10 2}. {stata wmt install mas, replace}{p_end}
+{p 8 10 2}. {stata wmt install mas, force}{p_end}
+{p 8 10 2}. {stata wmt install fn mas}{p_end}
+{p 8 10 2}. {stata wmt install fn mas, replace}{p_end}
+{p 8 10 2}. {stata wmt install fn mas, force}{p_end}
 
 
 {* -----------------------------Author------------------------------------ *}{...}
@@ -101,7 +101,6 @@ wangmeiting92@gmail.com
 {space 4}{help mat_cagn}(already installed)   {col 40}{stata wmt install mat_cagn:install mat_cagn}(to install)
 {space 4}{help table2}(already installed)   {col 40}{stata wmt install table2:install table2}(to install)
 {space 4}{help tabstat2}(already installed)   {col 40}{stata wmt install tabstat2:install tabstat2}(to install)
-{space 4}{help fsfz}(already installed)   {col 40}{stata wmt install fsfz:install fsfz}(to install)
 {space 4}{help fn}(already installed)   {col 40}{stata wmt install fn:install fn}(to install)
 {space 4}{help mas}(already installed)   {col 40}{stata wmt install mas:install mas}(to install)
 {space 4}{help del}(already installed)   {col 40}{stata wmt install del:install del}(to install)

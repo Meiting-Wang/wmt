@@ -1,21 +1,26 @@
-# Stata 新命令：wmt——删除一个或多个文件
+# Stata 新命令：wmt——查询并安装个人写的 Stata 命令
 
 > 作者：王美庭  
 > Email: wangmeiting92@gmail.com
 
 ## 一、引言
 
-我们知道，`erase`可以删除文件，但其一次性只能删除一个文件。
+创建微信公众号以来，个人已发布过 14 个 Stata 命令。这些命令都是为了解决自己某一方面问题而书写的，后面新命令的发布也会继续秉承这样的原则。也许大家会说在哪里发现了类似的命令，不过还请大家不要见怪，因为：
 
-另外，我们知道，类似`! wmt *.tex`也能删除多个文件，但是其调用的本非本身的命令，而是 cmd 的命令。除此之外，在运行以上语句时，屏幕会闪烁 cmd 窗口。以上特点，会让人感觉 Stata 用起来不“顺滑”。
+- 你发现了功能类似的命令，但是我刚好没有看到。
+- 我也发现了，但由于有强迫症的我，对于现有命令的某些细节还是不满意，于是就自己写一个。（大家可以对比一下我写的`fn`命令和现有的`fs`命令）
 
-于是，我们就使用`erase`命令加循环，写了一个基于 Stata 本身的`wmt`命令，以使得 Stata 本身也能支持一次性删除多个文件（以通配符的方式）。除此之外，该命令还具有以下特点：
+通过与大家在微信公众号后台和邮件中的交流，发现这些命令对于大家来说还是有一定用处的。由于现有安装 github 中托管的 Stata 命令的语句有些长以及存在着一定的问题：
 
-- 输入文件名时支持绝对路径和相对路径。
-- 运行命令后会在 Stata 界面上展示删除了哪些文件以及这些文件所在的路径。
-- 使用命令后运行`return list`可以得到以下返回值：（1）删除了哪些文件；（2）被删除文件所在的路径；（3）匹配文件时所设定的格式；（4）删除文件的数量。
+- `net install`的语句太长，记不住；
+- `github install`不能自动提示已经存在的命令
 
-因此，该命令不仅方便用户直接在 Stata 界面上查看被删除文件的信息，而且其返回值的多样性也方便用户使用这些信息进行后续的编程。
+所以个人基于简洁语法的原则和 Stata 自带命令`net`的内核，创建了一个专门用于安装我个人所写命令的命令。**该命令具有以下特点**：
+
+1. 可以查询并安装所有我写过的命令。所有我写过的命令可以`help wmt`或在本文第六节进行查看。
+2. 语法简洁易记，与我们常用的`ssc describe...`和`ssc install ...`语法一致。
+3. 对于已经存在的命令都会进行提示。如果内容与远端的不一样，则必须加上`replace`或`force`才能进行安装。
+4. 使用命令后运行`return list`可以得到以下返回值：（1）用户所要查询或安装的命令；（2）用户所有查询或安装的命令的数量；（3）所有我个人已经写过的命令。
 
 ## 二、命令的安装
 
@@ -35,59 +40,134 @@ github install Meiting-Wang/wmt
 
 ## 三、语法与选项
 
-**命令语法**：
+**查询单个或多个个人所写的命令：**
 
 ```stata
-wmt ["]filespec["]
+wmt describe commands
 ```
 
-> - `filespec`: 输入要删除的文件名的格式，如`*`、`read.tex`、`read*.tex`、`..\*`、`c:\Windows\*.exe`等
-> - 命令的使用很简单，更多细节可以`help wmt`。
+> - `describe`: 最短可以缩写为`d`
+
+**安装单个或多个个人所写的命令：**
+
+```stata
+wmt install commands [, replace force]
+```
+
+> - `install`: 最短可以缩写为`ins`
+> - `replace`: 如果安装文件已存在且不一样，则替换之；如果一样，则不做任何操作
+> - `force`: 如果安装文件已存在(无论是否一样)，都强制替换之
 
 ## 四、实例
 
 ```stata
-* 单个文件的删除
-wmt read.tex
-wmt "read.tex"
-wmt ".\read.tex"
-wmt "..\read.tex"
-wmt "X:\exercise\Stata\wmt\read.tex"
+* 描述或安装单个命令
+wmt describe mas //查询一下 mas 命令(含 title、description、authors、installation files)
+wmt install mas //安装命令 mas。如果文件已存在且不一样，则会告诉你哪些文件不一样，但不做任何操作
+wmt install mas, replace //安装命令 mas。如果安装文件已存在且不一样，则替换之；如果一样，则不做任何操作
+wmt install mas, force //安装命令 mas。如果安装文件已存在(无论是否一样)，都强制替换之
+return list //返回值
 
-* 多个文件的删除
-wmt *
-wmt "read*.tex"
-wmt ".\read*.tex"
-wmt "..\read*.tex"
-wmt "X:\exercise\Stata\wmt\read*.tex"
-
-* 获得返回值
-wmt "read*.tex"
-return list
+* 描述或安装多个命令
+wmt describe fn mas
+wmt install fn mas
+wmt install fn mas, replace
+wmt install fn mas, force
+return list //返回值
 ```
 
 ## 五、输出展示
 
 ```stata
-wmt ".\read*.tex"
+wmt describe fn mas
 ```
 
 ```stata
-location dirname: X:\exercise\Stata\wmt\
-    wmtete files: "read.tex" "read2.tex" "read3.tex"
+------------------------------------------------------------------------------
+package fn from https://raw.githubusercontent.com/Meiting-Wang/fn/main
+------------------------------------------------------------------------------
+
+TITLE
+      fn. Return the name and path of the specified files
+
+DESCRIPTION/AUTHOR(S)
+      Meiting Wang
+      Institute for Economic and Social Research, Jinan University
+      Guangzhou, China
+      wangmeiting92@gmail.com
+
+INSTALLATION FILES                                   (type net install fn)
+      fn.ado
+      fn.sthlp
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+package mas from https://raw.githubusercontent.com/Meiting-Wang/mas/main
+------------------------------------------------------------------------------
+
+TITLE
+      mas. Perform matching and substituting operations on text files
+
+DESCRIPTION/AUTHOR(S)
+      Meiting Wang
+      Institute for Economic and Social Research, Jinan University
+      Guangzhou, China
+      wangmeiting92@gmail.com
+
+INSTALLATION FILES                                  (type net install mas)
+      mas.ado
+      mas_main.ado
+      mas_del.ado
+      mas_coa.ado
+      mas.sthlp
+------------------------------------------------------------------------------
 ```
 
 ```stata
-return list
+wmt install fn mas, force
 ```
 
 ```stata
-macros:
-   r(location_dirname) : "X:\exercise\Stata\wmt\"
-      r(write_dirname) : ".\"
-     r(wmtete_pattern) : "read*.tex"
-   r(wmtete_files_num) : "3"
-       r(wmtete_files) : ""read.tex" "read2.tex" "read3.tex""
+------------------------------------------------------------------------------
+checking fn consistency and verifying not already installed...
+
+the following files will be replaced:
+    D:\stata16/ado\plus\f\fn.ado
+    D:\stata16/ado\plus\f\fn.sthlp
+
+installing into D:\stata16/ado\plus\...
+installation complete.
+------------------------------------------------------------------------------
+checking mas consistency and verifying not already installed...
+
+the following files will be replaced:
+    D:\stata16/ado\plus\m\mas.ado
+    D:\stata16/ado\plus\m\mas_main.ado
+    D:\stata16/ado\plus\m\mas_del.ado
+    D:\stata16/ado\plus\m\mas_coa.ado
+    D:\stata16/ado\plus\m\mas.sthlp
+
+installing into D:\stata16/ado\plus\...
+installation complete.
+------------------------------------------------------------------------------
 ```
+
+## 六、目前所有我发布过的命令
+
+1. [Stata 新命令：wmtsum——描述性统计表格的输出](https://mp.weixin.qq.com/s/oLgXf0KTgoePOnN1mJUllA)
+2. [Stata 新命令：wmttest——分组 T 均值检验表格的输出](https://mp.weixin.qq.com/s/8w22ms0AttN1TqQZyN9dUA)
+3. [Stata 新命令：wmtcorr——相关系数矩阵的输出](https://mp.weixin.qq.com/s/K8pZokyZrB6nLUlEKytmDw)
+4. [Stata 新命令：wmtreg——回归结果的输出](https://mp.weixin.qq.com/s/VcYmeYUAm1QSYcVU0fVLXA)
+5. [Stata 新命令：wmtmat——矩阵的输出](https://mp.weixin.qq.com/s/CgHd8OxTuL5V_CwHKVaFRQ)
+6. [Stata 新命令：matmh——扩展版的矩阵运算命令](https://mp.weixin.qq.com/s/hdXH3D3fgXxxKbC9Z-e7GQ)
+7. [Stata 新命令：wmtstr——对字符串进行唯一化、升序、降序处理](https://mp.weixin.qq.com/s/rlLLTwf20d8roudqt9hy_A)
+8. [Stata 小程序：space_rm——去除字符串括号里的空格](https://mp.weixin.qq.com/s/RoOv8R4QxH1tHZj1JcDBQw)
+9. [Stata 小程序：mat_cagn——解决类似mat A["mpg",1]=B[3,3]出现type mismatch的问题](https://mp.weixin.qq.com/s/Pe8YT5ukf4AM3fBzVy006g)
+10. [Stata 新命令：table2——"table"命令结果的输出](https://mp.weixin.qq.com/s/59zPMeuCKtEw5E8HesVOCg)
+11. [Stata 新命令：tabstat2——"tabstat"命令结果的输出](https://mp.weixin.qq.com/s/DimxIuzA49HQeflW_V-W-w)
+12. [Stata 新命令：fn——返回特定文件格式的文件名与所在路径](https://mp.weixin.qq.com/s/-Av-6qrATkMGtTdedmUsHg)
+13. [Stata 新命令：mas——文本文件内容的匹配与替换](https://mp.weixin.qq.com/s/EHoI4KFtueJp6kPh3IGzoA)
+14. [Stata 新命令：del——删除一个或多个文件](https://mp.weixin.qq.com/s/KEC1H5lUiuPV73Cpy-roow)
 
 > 点击【阅读原文】可进入该命令的 github 项目。
