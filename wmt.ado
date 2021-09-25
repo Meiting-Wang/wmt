@@ -2,6 +2,7 @@
 * Author: Meiting Wang, Ph.D. Candidate, Institute for Economic and Social Research, Jinan University
 * Email: wangmeiting92@gmail.com
 * Created on July 26, 2021
+* Updated on Sep 25, 2021
 
 
 
@@ -17,7 +18,7 @@ syntax anything(id="Meiting Wang's commands") [, replace force]
 
 *-------------------序---------------------
 local wmt_commands_master "wmtsum wmttest wmtcorr wmtreg wmtmat matmh wmtstr space_rm mat_cagn table2 tabstat2" //早期 github 主分支为 master 时 wmt 所写的命令
-local wmt_commands_main "fsfz fn mas del wmt" //后期 github 主分支改为 main 之后 wmt 所编写的命令
+local wmt_commands_main "fsfz fn mas del wmt levelsof2" //后期 github 主分支改为 main 之后 wmt 所编写的命令
 local all_wmt_cmds "`wmt_commands_master' `wmt_commands_main'" //所有 wmt 写过的命令
 
 

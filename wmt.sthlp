@@ -1,5 +1,6 @@
 {smcl}
 {right:Created time: July 27, 2021}
+{right:Updated time: Sep  25, 2021}
 {* -----------------------------title------------------------------------ *}{...}
 {p 0 14 2}
 {bf:[W-16] wmt} {hline 2} describe or install the Stata commands written by Meiting Wang. You can view the source code in {browse "https://github.com/Meiting-Wang/wmt":github}.
@@ -104,4 +105,5 @@ wangmeiting92@gmail.com
 {space 4}{help fn}(already installed)   {col 40}{stata wmt install fn:install fn}(to install)
 {space 4}{help mas}(already installed)   {col 40}{stata wmt install mas:install mas}(to install)
 {space 4}{help del}(already installed)   {col 40}{stata wmt install del:install del}(to install)
+{space 4}{help levelsof2}(already installed)   {col 40}{stata wmt install levelsof2:install levelsof2}(to install)
 
