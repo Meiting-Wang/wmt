@@ -93,6 +93,7 @@ wangmeiting92@gmail.com
 
 {space 4}{help skewnor}(already installed)   {col 40}{stata wmt install skewnor:install skewnor}(to install)
 {space 4}{help levelsof2}(already installed)   {col 40}{stata wmt install levelsof2:install levelsof2}(to install)
+{space 4}{help wmt}(already installed)   {col 40}{stata wmt install wmt:install wmt}(to install)
 {space 4}{help del}(already installed)   {col 40}{stata wmt install del:install del}(to install)
 {space 4}{help mas}(already installed)   {col 40}{stata wmt install mas:install mas}(to install)
 {space 4}{help fn}(already installed)   {col 40}{stata wmt install fn:install fn}(to install)
