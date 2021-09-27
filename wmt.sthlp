@@ -1,6 +1,6 @@
 {smcl}
 {right:Created time: July 27, 2021}
-{right:Updated time: Sep  25, 2021}
+{right:Updated time: Sep  27, 2021}
 {* -----------------------------title------------------------------------ *}{...}
 {p 0 14 2}
 {bf:[W-16] wmt} {hline 2} describe or install the Stata commands written by Meiting Wang. You can view the source code in {browse "https://github.com/Meiting-Wang/wmt":github}.
