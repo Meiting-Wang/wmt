@@ -43,7 +43,7 @@ Install one or more commands written by Meiting Wang
 {cmd:wmt} {opt ins:tall} will install the specified commands written by Meiting Wang, including {it:.ado} and {it:.sthlp} files.
 
 {p 4 4 2}
-The above commands all contain the following {bf:r()}: (1) the commands you want to describe or install; (2) the number of commands you want to describe or install; (3) all the commands that Meiting Wang has written.
+The above commands all contain the following return values in {bf:r()}: (1) the commands you want to describe or install; (2) the number of commands you want to describe or install; (3) all the commands that Meiting Wang has written.
 
 {p 4 4 2}
 It is worth noting that this command can only be used in version 16.0 or later.
