@@ -169,5 +169,10 @@ installation complete.
 12. [Stata 新命令：fn——返回特定文件格式的文件名与所在路径](https://mp.weixin.qq.com/s/-Av-6qrATkMGtTdedmUsHg)
 13. [Stata 新命令：mas——文本文件内容的匹配与替换](https://mp.weixin.qq.com/s/EHoI4KFtueJp6kPh3IGzoA)
 14. [Stata 新命令：del——删除一个或多个文件](https://mp.weixin.qq.com/s/KEC1H5lUiuPV73Cpy-roow)
+15. [Stata 新命令：wmt——查询并安装个人写的 Stata 新命令](https://mp.weixin.qq.com/s/P2V_6et9crS5GeNNfO-6xQ)
+16. [Stata 新命令：levelsof2--加强版 levelsof](https://mp.weixin.qq.com/s/99YEiViH9fSAa6cXKYESNg)
+17. [Stata 新命令：skewnor--生成 skew-normal 随机数](https://mp.weixin.qq.com/s/P72o_IQQU0vc2FQh0au8Pg)
+18. [Stata 新命令：open--open everything](https://mp.weixin.qq.com/s/IdaTRmNS9itNinM7A3giIA)
 
 > 点击【阅读原文】可进入该命令的 github 项目。
+
