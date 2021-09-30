@@ -52,7 +52,7 @@ It is worth noting that this command can only be used in version 16.0 or later.
 {* -----------------------------Options------------------------------------ *}{...}
 {marker Options}{title:Options}
 
-{synoptset 20}{...}
+{synoptset 18}{...}
 {synopthdr:install options}
 {synoptline}
 {synopt :{opt replace}}Secifies that the downloaded files replace existing files if any of the files already exists.{p_end}
@@ -91,6 +91,7 @@ wangmeiting92@gmail.com
 
 {p 4 4 2}All the commands written by Meiting Wang are as follows:{p_end}
 
+{space 4}{help open}(already installed)   {col 40}{stata wmt install open:install open}(to install)
 {space 4}{help skewnor}(already installed)   {col 40}{stata wmt install skewnor:install skewnor}(to install)
 {space 4}{help levelsof2}(already installed)   {col 40}{stata wmt install levelsof2:install levelsof2}(to install)
 {space 4}{help wmt}(already installed)   {col 40}{stata wmt install wmt:install wmt}(to install)
