@@ -9,7 +9,7 @@
 program define wmt, rclass
 version 16.0
 
-syntax anything(id="Meiting Wang's commands") [, replace force]
+syntax anything(id="Meiting Wang's commands" everything) [, replace force]
 /*
 ***编程注意事项
 - anything 会将双引号传递下来
