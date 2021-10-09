@@ -5,9 +5,7 @@
 
 ## 一、引言
 
-：
-
-为了使命令使用方便，我们对该命令进行了如下更新：
+为了命令使用更方便，我们对该命令进行了如下更新：
 
 - 修复了该命令不能描述和安装个人写的最新命令的 bug；
 - 增加了`wmt update`功能，用以更新`wmt`命令本身（即等同于`wmt install wmt, replace`）。
@@ -164,26 +162,37 @@ installation complete.
 ------------------------------------------------------------------------------
 ```
 
+```stata
+wmt update
+```
+
+```stata
+-------------------------------------------------------------------------------
+checking wmt consistency and verifying not already installed...
+all files already exist and are up to date.
+-------------------------------------------------------------------------------
+```
+
 ## 六、目前我发布过的所有命令
 
-1. [Stata 新命令：wmtsum——描述性统计表格的输出](https://mp.weixin.qq.com/s/oLgXf0KTgoePOnN1mJUllA)
-2. [Stata 新命令：wmttest——分组 T 均值检验表格的输出](https://mp.weixin.qq.com/s/8w22ms0AttN1TqQZyN9dUA)
-3. [Stata 新命令：wmtcorr——相关系数矩阵的输出](https://mp.weixin.qq.com/s/K8pZokyZrB6nLUlEKytmDw)
-4. [Stata 新命令：wmtreg——回归结果的输出](https://mp.weixin.qq.com/s/VcYmeYUAm1QSYcVU0fVLXA)
-5. [Stata 新命令：wmtmat——矩阵的输出](https://mp.weixin.qq.com/s/CgHd8OxTuL5V_CwHKVaFRQ)
-6. [Stata 新命令：matmh——扩展版的矩阵运算命令](https://mp.weixin.qq.com/s/hdXH3D3fgXxxKbC9Z-e7GQ)
-7. [Stata 新命令：wmtstr——对字符串进行唯一化、升序、降序处理](https://mp.weixin.qq.com/s/rlLLTwf20d8roudqt9hy_A)
-8. [Stata 小程序：space_rm——去除字符串括号里的空格](https://mp.weixin.qq.com/s/RoOv8R4QxH1tHZj1JcDBQw)
-9. [Stata 小程序：mat_cagn——解决类似mat A["mpg",1]=B[3,3]出现type mismatch的问题](https://mp.weixin.qq.com/s/Pe8YT5ukf4AM3fBzVy006g)
-10. [Stata 新命令：table2——"table"命令结果的输出](https://mp.weixin.qq.com/s/59zPMeuCKtEw5E8HesVOCg)
-11. [Stata 新命令：tabstat2——"tabstat"命令结果的输出](https://mp.weixin.qq.com/s/DimxIuzA49HQeflW_V-W-w)
-12. [Stata 新命令：fn——返回特定文件格式的文件名与所在路径](https://mp.weixin.qq.com/s/-Av-6qrATkMGtTdedmUsHg)
-13. [Stata 新命令：mas——文本文件内容的匹配与替换](https://mp.weixin.qq.com/s/EHoI4KFtueJp6kPh3IGzoA)
-14. [Stata 新命令：del——删除一个或多个文件](https://mp.weixin.qq.com/s/KEC1H5lUiuPV73Cpy-roow)
-15. [Stata 新命令：wmt——查询并安装个人写的 Stata 新命令](https://mp.weixin.qq.com/s/P2V_6et9crS5GeNNfO-6xQ)
-16. [Stata 新命令：levelsof2--加强版 levelsof](https://mp.weixin.qq.com/s/99YEiViH9fSAa6cXKYESNg)
+1. [Stata 新命令：open--open everything](https://mp.weixin.qq.com/s/IdaTRmNS9itNinM7A3giIA)
 17. [Stata 新命令：skewnor--生成 skew-normal 随机数](https://mp.weixin.qq.com/s/P72o_IQQU0vc2FQh0au8Pg)
-18. [Stata 新命令：open--open everything](https://mp.weixin.qq.com/s/IdaTRmNS9itNinM7A3giIA)
+16. [Stata 新命令：levelsof2--加强版 levelsof](https://mp.weixin.qq.com/s/99YEiViH9fSAa6cXKYESNg)
+15. [Stata 新命令：wmt——查询并安装个人写的 Stata 新命令](https://mp.weixin.qq.com/s/P2V_6et9crS5GeNNfO-6xQ)
+14. [Stata 新命令：del——删除一个或多个文件](https://mp.weixin.qq.com/s/KEC1H5lUiuPV73Cpy-roow)
+13. [Stata 新命令：mas——文本文件内容的匹配与替换](https://mp.weixin.qq.com/s/EHoI4KFtueJp6kPh3IGzoA)
+12. [Stata 新命令：fn——返回特定文件格式的文件名与所在路径](https://mp.weixin.qq.com/s/-Av-6qrATkMGtTdedmUsHg)
+11. [Stata 新命令：tabstat2——"tabstat"命令结果的输出](https://mp.weixin.qq.com/s/DimxIuzA49HQeflW_V-W-w)
+10. [Stata 新命令：table2——"table"命令结果的输出](https://mp.weixin.qq.com/s/59zPMeuCKtEw5E8HesVOCg)
+9. [Stata 小程序：mat_cagn——解决类似mat A["mpg",1]=B[3,3]出现type mismatch的问题](https://mp.weixin.qq.com/s/Pe8YT5ukf4AM3fBzVy006g)
+8. [Stata 小程序：space_rm——去除字符串括号里的空格](https://mp.weixin.qq.com/s/RoOv8R4QxH1tHZj1JcDBQw)
+7. [Stata 新命令：wmtstr——对字符串进行唯一化、升序、降序处理](https://mp.weixin.qq.com/s/rlLLTwf20d8roudqt9hy_A)
+6. [Stata 新命令：matmh——扩展版的矩阵运算命令](https://mp.weixin.qq.com/s/hdXH3D3fgXxxKbC9Z-e7GQ)
+5. [Stata 新命令：wmtmat——矩阵的输出](https://mp.weixin.qq.com/s/CgHd8OxTuL5V_CwHKVaFRQ)
+4. [Stata 新命令：wmtreg——回归结果的输出](https://mp.weixin.qq.com/s/VcYmeYUAm1QSYcVU0fVLXA)
+3. [Stata 新命令：wmtcorr——相关系数矩阵的输出](https://mp.weixin.qq.com/s/K8pZokyZrB6nLUlEKytmDw)
+2. [Stata 新命令：wmttest——分组 T 均值检验表格的输出](https://mp.weixin.qq.com/s/8w22ms0AttN1TqQZyN9dUA)
+1. [Stata 新命令：wmtsum——描述性统计表格的输出](https://mp.weixin.qq.com/s/oLgXf0KTgoePOnN1mJUllA)
 
 > 点击【阅读原文】可进入该命令的 github 项目。
 
