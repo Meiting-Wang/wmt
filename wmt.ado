@@ -80,7 +80,9 @@ else if ustrregexm("`subcmd'","`install_str'") { //当 subcmd 为 install 时
 	}
 }
 else { //当 subcmd 为 update 时
+	dis as text "{hline}"
 	net install wmt, from("https://raw.githubusercontent.com/Meiting-Wang/wmt/main") replace
+	dis as text "{hline}"
 	local commands "wmt"
 	local commands_num = 1
 }
