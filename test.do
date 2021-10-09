@@ -1,6 +1,5 @@
-cls
 pr drop _all
-cd "X:\exercise\Stata\wmt"
+cls
 
 *---------------wmt 命令----------------------
 * 描述或安装单个命令
@@ -16,6 +15,9 @@ wmt install fn mas
 wmt install fn mas, replace
 wmt install fn mas, force
 return list //返回值
+
+* 更新命令 wmt 本身
+wmt update
 
 
 *--------------深入阅读：Stata 自带 net 命令--------------

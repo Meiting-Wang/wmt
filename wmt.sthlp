@@ -1,6 +1,6 @@
 {smcl}
 {right:Created time: July 27, 2021}
-{right:Updated time: Sep  27, 2021}
+{right:Updated time: Oct   9, 2021}
 {* -----------------------------title------------------------------------ *}{...}
 {p 0 14 2}
 {bf:[W-16] wmt} {hline 2} describe or install the Stata commands written by Meiting Wang. You can view the source code in {browse "https://github.com/Meiting-Wang/wmt":github}.
@@ -19,7 +19,13 @@ Describe one or more commands written by Meiting Wang
 Install one or more commands written by Meiting Wang
 
 {p 8 8 2}
-{cmd:wmt} {opt ins:tall} {it:commands} [{opt , replace force}]
+{cmd:wmt} {opt i:nstall} {it:commands} [{opt , replace force}]
+
+{p 4 4 2}
+Update command {cmd:wmt} itself
+
+{p 8 8 2}
+{cmd:wmt} {opt u:pdate}
 
 
 {* -----------------------------Contents------------------------------------ *}{...}
@@ -40,7 +46,10 @@ Install one or more commands written by Meiting Wang
 {cmd:wmt} {opt d:escribe} will describe the specified commands written by Meiting Wang, including title, description, authors, and installation files.
 
 {p 4 4 2}
-{cmd:wmt} {opt ins:tall} will install the specified commands written by Meiting Wang, including {it:.ado} and {it:.sthlp} files.
+{cmd:wmt} {opt i:nstall} will install the specified commands written by Meiting Wang, including {it:.ado} and {it:.sthlp} files.
+
+{p 4 4 2}
+{cmd:wmt} {opt u:pdate} will update command {cmd:wmt} itself, the same as {bf:wmt install wmt, replace}.
 
 {p 4 4 2}
 The above commands all contain the following return values in {bf:r()}: (1) the commands you want to describe or install; (2) the number of commands you want to describe or install; (3) all the commands that Meiting Wang has written.
@@ -74,6 +83,13 @@ It is worth noting that this command can only be used in version 16.0 or later.
 {p 8 10 2}. {stata wmt install fn mas}{p_end}
 {p 8 10 2}. {stata wmt install fn mas, replace}{p_end}
 {p 8 10 2}. {stata wmt install fn mas, force}{p_end}
+
+{p 4 4 2}Update command {cmd:wmt} itself{p_end}
+{p 8 10 2}. {stata wmt update}{p_end}
+
+{p 4 4 2}Get the return value in {bf:r()}{p_end}
+{p 8 10 2}. {stata wmt install fn mas, replace}{p_end}
+{p 8 10 2}. {stata return list}{p_end}
 
 
 {* -----------------------------Author------------------------------------ *}{...}

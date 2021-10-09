@@ -1,18 +1,27 @@
-# Stata 新命令：wmt——查询并安装个人写的 Stata 新命令
+# Stata 命令 wmt 的更新——查询并安装个人写的 Stata 新命令
 
 > 作者：王美庭  
 > Email: wangmeiting92@gmail.com
 
 ## 一、引言
 
-创建微信公众号以来，个人已发布过 14 个 Stata 命令。这些命令都是为了解决自己某一方面问题而书写的，后面新命令的发布也会继续秉承这样的原则。也许大家会说在哪里发现了类似的命令，不过还请大家不要见怪，因为：
+：
+
+为了使命令使用方便，我们对该命令进行了如下更新：
+
+- 修复了该命令不能描述和安装个人写的最新命令的 bug；
+- 增加了`wmt update`功能，用以更新`wmt`命令本身（即等同于`wmt install wmt, replace`）。
+
+同时我也更新了本文档（旧文档参见 [Stata 新命令：wmt——查询并安装个人写的 Stata 新命令](https://mp.weixin.qq.com/s/P2V_6et9crS5GeNNfO-6xQ)），详情如下：
+
+创建微信公众号以来，个人已发布过 18 个 Stata 命令。这些命令都是为了解决自己某一方面问题而书写的，后面新命令的发布也会继续秉承这样的原则。也许大家会说在哪里发现了类似的命令，不过还请大家不要见怪，因为：
 
 - 你发现了功能类似的命令，但是我刚好没有看到。
 - 我也发现了，但由于有强迫症的我，对于现有命令的某些细节还是不满意，于是就自己写一个。（大家可以对比一下我写的`fn`命令和现有的`fs`命令）
 
 通过与大家在微信公众号后台和邮件中的交流，发现这些命令对于大家来说还是有一定用处的。由于现有安装 github 中托管的 Stata 命令的语句有些长以及存在着一定的问题：
 
-- `net install`的语句太长，记不住；
+- `net install`的语句太长，记不住
 - `github install`不能自动提示已经存在的命令
 
 所以个人基于简洁语法的原则和 Stata 自带命令`net`的内核，创建了一个专门用于安装我个人所写命令的命令。**该命令具有以下特点**：
@@ -20,22 +29,15 @@
 1. 可以查询并安装所有我写过的命令。所有我写过的命令可以`help wmt`或在本文第六节进行查看。
 2. 语法简洁易记，与我们常用的`ssc describe...`和`ssc install ...`语法一致。
 3. 对于已经存在的命令都会进行提示。如果内容与远端的不一样，则必须加上`replace`或`force`选项才能进行安装。
-4. 使用命令后运行`return list`可以得到以下返回值：（1）用户所要查询或安装的命令；（2）用户所有查询或安装的命令的数量；（3）所有我个人已经写过的命令。
+4. 使用`wmt update`能实现对命令`wmt`本身的更新。
+5. 使用命令后运行`return list`可以得到以下返回值：（1）用户所要查询或安装的命令；（2）用户所有查询或安装的命令的数量；（3）所有我个人已经写过的命令。
 
 ## 二、命令的安装
 
-`wmt`及本人其他命令的代码都托管于 GitHub 上，读者可随时下载安装这些命令。
-
-你可以通过系统自带的`net`命令进行安装：
+`wmt`及本人其他命令的代码都托管于 GitHub 上，读者可随时下载安装这些命令：
 
 ```stata
 net install wmt, from("https://raw.githubusercontent.com/Meiting-Wang/wmt/main")
-```
-
-也可以通过`github`外部命令进行安装（`github`命令本身可以通过`net install github, from("https://haghish.github.io/github/")`进行安装）：
-
-```stata
-github install Meiting-Wang/wmt
 ```
 
 ## 三、语法与选项
@@ -54,9 +56,15 @@ wmt describe commands
 wmt install commands [, replace force]
 ```
 
-> - `install`: 最短可以缩写为`ins`
+> - `install`: 最短可以缩写为`i`
 > - `replace`: 如果安装文件已存在且不一样，则替换之；如果一样，则不做任何操作
 > - `force`: 如果安装文件已存在(无论是否一样)，都强制替换之
+
+**更新`wmt`命令本身：**
+
+```stata
+wmt update
+```
 
 ## 四、实例
 
@@ -74,6 +82,9 @@ wmt install fn mas
 wmt install fn mas, replace
 wmt install fn mas, force
 return list //返回值
+
+* 更新命令 wmt 本身
+wmt update
 ```
 
 ## 五、输出展示

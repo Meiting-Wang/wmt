@@ -9,10 +9,10 @@
 program define wmt, rclass
 version 16.0
 
-syntax anything(id="Meiting Wang's commands" everything) [, replace force]
+syntax anything(everything) [, replace force]
 /*
 ***编程注意事项
-- anything 会将双引号传递下来
+- 这里 anything 会将双引号传递下来
 */
 
 
@@ -25,44 +25,39 @@ local all_wmt_cmds "`wmt_commands_master' `wmt_commands_main'" //所有 wmt 写�
 *----------------前期程序-------------------
 * 提取 subcmd 和 commands
 gettoken subcmd commands: anything
-
 local describe_str "^d((e?)|(es?)|(esc?)|(escr?)|(escri?)|(escrib?)|(escribe?))$"
-local install_str "^ins((t?)|(ta?)|(tal?)|(tall?))$"
-if ~ustrregexm("`subcmd'","(`describe_str')|(`install_str')") {
-	dis as error `"Only {bf:"wmt describe ..."} or {bf:"wmt install ..."} are allowed"'
+local install_str "^i((n?)|(ns?)|(nst?)|(nsta?)|(nstal?)|(nstall?))$"
+local update_str "^u((p?)|(pd?)|(pda?)|(pdat?)|(pdate?))$"
+if ~ustrregexm("`subcmd'","(`describe_str')|(`install_str')|(`update_str')") {
+	dis as error `"Only {cmd:wmt describe ...} , {cmd:wmt install ...} or {cmd:wmt update} allowed"'
 	error 9999
-} //让 subcmd 符合 describe 或 install
+} //让 subcmd 符合 describe, install, 或 update
 
-local commands = ustrregexra(`"`commands'"',`"(^\s*"?\s*)|(\s*"?$)"',"") //去除 commands 中的双引号和前端和末尾多余的空格
-
-if "`commands'" == "" {
-	dis as error "Meiting Wang's commands required"
+local commands = ustrregexra(`"`commands'"',`"(^\s*"?\s*)|(\s*"?$)"',"") //去除 commands 前端和末端的双引号和空格
+if ~ustrregexm("`subcmd'","`update_str'") & ("`commands'"=="") {
+	dis as error "Commands written by Meiting Wang required"
+	error 9999
+}
+else if ustrregexm("`subcmd'","`update_str'") & ("`commands'"!="") {
+	dis as error "No need to input commands in {cmd:wmt update}"
 	error 9999
 }
 
 
-* (1) 提取 command1-command...; (2)判断所输入的命令是不是 wmt 发布的命令; (3) 提取 main1-main...
+* (1) 提取 command1-command...; (2) 提取 main1-main...
 tokenize `commands'
 local i = 1
 while "``i''" != "" {
 	local command`i' ``i'' //提取 command1-command...
-
-	if ~ustrregexm("`all_wmt_cmds'","\b`command`i''\b") {
-		dis as error "`command`i'' is not a command written by Meiting Wang."
-		error 9999
-	} //以保证所输入的命令必须是 wmt 已经发布过的命令
-
 	if ustrregexm("`wmt_commands_master'","\b`command`i''\b") {
 		local main`i' "master" //提取 main1-main...
 	}
 	else {
 		local main`i' "main" //提取 main1-main...
 	}
-
 	local i = `i' + 1
 }
 local commands_num = `i' - 1 //所输入命令的总数量
-
 
 
 *-------------------主程序--------------------
@@ -74,7 +69,7 @@ if ustrregexm("`subcmd'","`describe_str'") { //当 subcmd 为 describe 时
 		}
 	}
 }
-else { //当 subcmd 为 install 时
+else if ustrregexm("`subcmd'","`install_str'") { //当 subcmd 为 install 时
 	dis "" //输出时这里空出一行
 	forvalues i = 1/`commands_num' {
 		dis as text "{hline}"
@@ -83,6 +78,11 @@ else { //当 subcmd 为 install 时
 			dis as text "{hline}"
 		}
 	}
+}
+else { //当 subcmd 为 update 时
+	net install wmt, from("https://raw.githubusercontent.com/Meiting-Wang/wmt/main") replace
+	local commands "wmt"
+	local commands_num = 1
 }
 
 
