@@ -115,6 +115,7 @@ wangmeiting92@gmail.com
 {space 4}{help del}(already installed)   {col 40}{stata wmt install del,replace:install del}(to install)
 {space 4}{help mas}(already installed)   {col 40}{stata wmt install mas,replace:install mas}(to install)
 {space 4}{help fn}(already installed)   {col 40}{stata wmt install fn,replace:install fn}(to install)
+{space 4}{help fsfz}(already installed)   {col 40}{stata wmt install fsfz,replace:install fsfz}(to install)
 {space 4}{help tabstat2}(already installed)   {col 40}{stata wmt install tabstat2,replace:install tabstat2}(to install)
 {space 4}{help table2}(already installed)   {col 40}{stata wmt install table2,replace:install table2}(to install)
 {space 4}{help mat_cagn}(already installed)   {col 40}{stata wmt install mat_cagn,replace:install mat_cagn}(to install)
