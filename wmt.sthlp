@@ -107,6 +107,7 @@ wangmeiting92@gmail.com
 
 {p 4 4 2}All the commands written by Meiting Wang are as follows:{p_end}
 
+{space 4}{help lpoly2}(already installed)   {col 40}{stata wmt install lpoly2,replace:install lpoly2}(to install)
 {space 4}{help lpoly1}(already installed)   {col 40}{stata wmt install lpoly1,replace:install lpoly1}(to install)
 {space 4}{help open}(already installed)   {col 40}{stata wmt install open,replace:install open}(to install)
 {space 4}{help skewnor}(already installed)   {col 40}{stata wmt install skewnor,replace:install skewnor}(to install)
